@@ -1,0 +1,65 @@
+.subflags {
+    @include box-sizing;
+    position: absolute;
+    top: 15px;
+    width: 207px;
+    right: 0;
+    z-index: 9;
+    margin: 0px;
+    padding-top: 11px;
+
+    > .fas {
+        position: absolute;
+        top: -5px;
+        font-size: 25px;
+        right: 18px;
+        color: $color-gray-light;
+    }
+
+    @include e("cont") {
+        background-color: $color-gray-light;
+        padding: 20px;
+    }
+
+
+    @include e("block") {
+        @include box-sizing;
+        width: 100%;
+        margin-bottom: 15px;
+        @include m('last'){
+            margin: 0px;
+        }
+    }
+
+    @include e("title"){
+        @include fonte($second-font, 400, 14px, $color-red);
+        padding-bottom: 5px;
+        display: block;
+    }
+
+    @include e('flag'){
+        @include flexbox(row, nowrap, flex-start, center, center);
+        @include fonte($second-font, 400, 13px, $color-gray-dark);
+        padding: 5px 0px;
+        .flag{
+            margin-right: 5px;
+        }
+
+        &:hover{
+            color: $color-red;
+        }
+    }
+
+    @include e('footer'){
+        @include flexbox(row, nowrap, center, center, center);
+        background-color: $color-gray-light;
+        padding: 10px 20px;
+        border-top: 1px solid $color-gray;
+        @include e('link'){
+            @include fonte($second-font, 400, 13px, $color-red);
+        }
+
+    }
+
+
+}

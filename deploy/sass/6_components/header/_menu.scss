@@ -1,0 +1,129 @@
+.menu {
+    width: 100%;
+    background-color: $color-red;
+
+    @media #{$res-break} {
+        display: none;
+    }
+
+    .wrapper {
+        @include flexbox(row, nowrap, space-between, center, center);
+
+        list-style: none;
+        margin: 0px;
+        margin: 0px auto;
+    }
+
+    @include e("item") {
+        .submenu {
+            display: none;
+        }
+
+        &:hover {
+            > a {
+                background-color: #FFF;
+                color: $color-red;
+
+                &:after {
+                    color: $color-red;
+                }
+            }
+
+            .submenu {
+                @include animate(fadeIn, 0s);
+
+                display: block;
+            }
+        }
+
+
+        @include m('all'){
+            .allcats{
+                display: none;
+            }
+            &:hover{
+                .allcats {
+                    @include animate(fadeIn, 0s);
+
+                    display: block;
+                }
+            }
+        }
+
+    }
+
+
+    @include e("link") {
+        @include flexbox(row, nowrap, center, center, center);
+        @include fonte($second-font, 400, 14px, #FFF);
+        @include box-sizing;
+        @include transition;
+        padding: 15px 10px;
+
+        @include m("all") {
+            cursor: pointer;
+            &:after {
+                @include set-icon($fa-var-chevron-circle-down, 14px, 900, #FFF);
+                padding-left: 10px;
+            }            
+        }
+    }
+}
+
+.submenu {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+
+    .wrapper {
+        @include flexbox(row, nowrap, flex-start, flex-start, flex-start);
+        @include box-sizing;
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: #FFF;
+        -webkit-box-shadow: 2px 2px 2px 0px rgba(145, 145, 145, 1);
+        -moz-box-shadow: 2px 2px 2px 0px rgba(145, 145, 145, 1);
+        box-shadow: 2px 2px 2px 0px rgba(145, 145, 145, 1);
+    }
+
+    @include e("col") {
+        @include box-sizing;
+
+        padding: 20px;
+
+        @include m("img") {
+            margin-left: auto;
+        }
+    }
+
+
+    @include e("itens") {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+
+    @include e("title") {
+        @include fonte($second-font, 400, 12px, $color-red);
+
+        margin-bottom: 10px;
+        display: block;
+    }
+
+
+    @include e("item") {
+        margin-bottom: 5px;
+    }
+
+
+    @include e("link") {
+        @include fonte($second-font, 400, 12px, $color-gray);
+
+        &:hover {
+            color: $color-red;
+        }
+    }
+}
+

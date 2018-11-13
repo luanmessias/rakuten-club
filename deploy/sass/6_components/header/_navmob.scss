@@ -1,0 +1,56 @@
+.navmob{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.596);
+    z-index: 10;
+
+    
+    &.active{
+        @media #{$res-break} {
+            display: block;
+        }
+
+        @include animate(fadeIn, .1s);
+        .navmob__content{
+            @include animate(fadeInLeft, 0s);
+        }
+    }
+
+    @include e('content'){
+        width: 85%;
+        height: 100%;
+        overflow-x: auto;
+        background-color: #FFF;
+    }
+
+    @include e('header'){
+        background-color: $color-red;
+        background-image: url('../../dist/img/parallax.png');
+    }
+
+    @include e('photo'){
+        > img{
+             @include border-radius(50%);
+             max-width: 80px;
+             margin: 15px;
+        }
+     }
+
+     @include e('welcome'){
+         @include box-sizing;
+         width: 100%;
+         padding-left: 20px;
+         padding-bottom: 25px;
+         @include e("link") {
+            @include fonte($second-font, 400, 16px, #FFF);
+        }
+
+        @include e("txt") {
+            @include fonte($second-font, 400, 16px, #FFF);
+        }
+
+     }
+
+}

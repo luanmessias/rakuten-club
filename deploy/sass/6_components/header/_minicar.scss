@@ -1,0 +1,19 @@
+.minicar {
+    @include box-sizing;
+    position: absolute;
+    //display: none;
+    top: 45px;
+    right: 0;
+    z-index: 9;
+    margin: 0px;
+    padding-top: 11px;
+
+    > .fas {
+        position: absolute;
+        top: -5px;
+        font-size: 25px;
+        right: 82px;
+        color: $color-gray-extra-light;
+    }
+
+}

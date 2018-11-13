@@ -1,0 +1,251 @@
+.allcats {
+    display: none;
+    position: absolute;
+    z-index: 10;
+}
+
+.allcat {
+    background-color: $color-gray-extra-light;
+    list-style: none;
+    padding: 0px;
+    min-width: 200px;
+
+    @include e("item") {
+        @include flexbox(row, nowrap, flex-start, center, center);
+        @include box-sizing;
+        @include transition;
+
+        padding: 5px;
+        border-bottom: 1px solid $color-gray-light;
+
+        &:hover {
+            background-color: $color-red;
+
+            .allcat__link {
+                color: #FFF;
+            }
+
+            &:after {
+                color: #FFF;
+            }
+
+            > .subcat {
+                display: flex;
+            }
+        }
+
+        &:before {
+            content: "";
+            background-image: url("../../dist/img/sprite-icons-menu-2.png");
+            width: 28px;
+            height: 28px;
+        }
+
+        &:after {
+            @include set-icon($fa-var-caret-right, 20px, 900, $color-gray-dark);
+
+            margin-left: auto;
+        }
+
+        @include m("calcados") {
+            &:before {
+                background-position: 0px 4px;
+            }
+
+            &:hover:before {
+                background-position: -30px 4px;
+            }
+        }
+
+
+        @include m("moda") {
+            &:before {
+                background-position: 0px -33px;
+            }
+
+            &:hover:before {
+                background-position: -30px -33px;
+            }
+        }
+
+
+        @include m("smarth") {
+            &:before {
+                background-position: 0px -70px;
+            }
+
+            &:hover:before {
+                background-position: -30px -70px;
+            }
+        }
+
+
+        @include m("eletrod") {
+            &:before {
+                background-position: 0px -105px;
+            }
+
+            &:hover:before {
+                background-position: -30px -105px;
+            }
+        }
+
+
+        @include m("eletroe") {
+            &:before {
+                background-position: 0px -142px;
+            }
+
+            &:hover:before {
+                background-position: -30px -142px;
+            }
+        }
+
+
+        @include m("info") {
+            &:before {
+                background-position: 0px -177px;
+            }
+
+            &:hover:before {
+                background-position: -30px -177px;
+            }
+        }
+
+
+        @include m("home") {
+            &:before {
+                background-position: 0px -212px;
+            }
+
+            &:hover:before {
+                background-position: -30px -212px;
+            }
+        }
+
+
+        @include m("fashion") {
+            &:before {
+                background-position: 0px -249px;
+            }
+
+            &:hover:before {
+                background-position: -30px -249px;
+            }
+        }
+
+
+        @include m("pet") {
+            &:before {
+                background-position: 0px -286px;
+            }
+
+            &:hover:before {
+                background-position: -30px -286px;
+            }
+        }
+
+
+        @include m("sport") {
+            &:before {
+                background-position: 0px -351px;
+            }
+
+            &:hover:before {
+                background-position: -30px -351px;
+            }
+        }
+
+
+        @include m("catg") {
+            &:before {
+                background-position: 0px -388px;
+            }
+
+            &:hover:before {
+                background-position: -30px -388px;
+            }
+        }
+    }
+
+
+    @include e("link") {
+        @include fonte($second-font, 400, 12px, $color-gray-dark);
+        @include transition;
+
+        margin: 0px 15px;
+    }
+}
+
+.subcat {
+    @include flexbox(row, wrap, space-between, flex-start, flex-start);
+    @include animate(fadeIn, 0s);
+    @include box-sizing;
+    display: none;
+    width: 800px;
+    border: 5px solid $color-red;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    background-color: #FFF;
+    height: auto;
+
+    @include e("title") {
+        @include box-sizing;
+
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid $color-gray-light;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+
+    @include e("menu") {
+        @include fonte($second-font, bold, 16px, $color-red);
+        @include box-sizing;
+
+        padding: 15px;
+        width: calc(100% - 240px);
+    }
+
+
+    @include e("imglink") {
+        margin-left: auto;
+        display: flex;
+    }
+
+
+    @include e("itens") {
+        list-style: none;
+        padding: 0px;
+        margin: 0px 0px 20px 0px;
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+        -moz-column-gap: 10px;
+        -webkit-column-gap: 10px;
+        column-gap: 10px;
+    }
+
+
+    @include e("item") {
+        margin-bottom: 5px;
+    }
+
+
+    @include e("link") {
+        @include fonte($second-font, normal, 14px, $color-gray);
+        @include transition;
+
+        &:hover{
+            color: $color-red;
+        }
+
+
+        @include m("first") {
+            color: $color-red;
+            font-weight: bold;
+        }
+    }
+}

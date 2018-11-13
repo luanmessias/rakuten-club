@@ -1,0 +1,110 @@
+.hicons {
+    @media #{$res-lg}, #{$res-xl} {
+        @include m("left") {
+            @include flexbox(row, nowrap, flex-start, center, center);
+        }
+
+        @include m("right") {
+            @include flexbox(row, nowrap, flex-end, center, center);
+        }
+    }
+
+    @media #{$res-xs}, #{$res-sm}, #{$res-md} {
+        @include flexbox(row, nowrap, center, center, center);
+    }
+
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    @include e("item") {
+        @include flexbox(row, nowrap, flex-end, center, center);
+        @include m("sep") {
+            width: 1px;
+            height: 25px;
+            background-color: #CCC;
+            margin-right: 15px;
+        }
+    }
+
+
+    @include e("link") {
+        @include flexbox(row, nowrap, flex-start, center, center);
+        @include fonte($second-font, 400, 12px, $color-gray);
+
+        padding-left: 30px;
+        margin-right: 20px;
+        height: 25px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left center;
+
+        &:hover {
+            color: $color-red;
+        }
+
+        @include m("orders") {
+            background-image: url("../../dist/img/ico_header_pedidos.png");
+
+            &:hover {
+                background-image: url("../../dist/img/ico_header_pedidos_hover.png");
+            }
+        }
+
+
+        @include m("call") {
+            background-image: url("../../dist/img/ico_header_sac.png");
+
+            &:hover {
+                background-image: url("../../dist/img/ico_header_sac_hover.png");
+            }
+        }
+
+
+        @include m("open") {
+            background-image: url("../../dist/img/ico_header_loja.png");
+
+            &:hover {
+                background-image: url("../../dist/img/ico_header_loja_hover.png");
+            }
+        }
+
+
+        @include m("points") {
+            background-image: url("../../dist/img/ico_header_points.png");
+        }
+
+
+        @include m("viber") {
+            > img {
+                width: 70px;
+                height: auto;
+            }
+        }
+    }
+
+
+    @include e("flags") {
+        @include flexbox(row, nowrap, center, center, center);
+        position: relative;
+
+        > img {
+            @include transition;
+            margin-left: 5px;
+        }
+
+        .subflags {
+            display: none;
+        }
+
+        &:hover {
+            > img {
+                @include rotate(180);
+            }
+            .subflags {
+                @include animate(fadeIn, 0s);
+                display: block;
+            }
+        }
+    }
+}
