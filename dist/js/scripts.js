@@ -54,10 +54,12 @@ $(document).ready(function () {
         $('.header__search').toggleClass('active');
     });
 
-    $('.header__mobmenu').click(function(){
+    $('.cs_mobmenu').click(function(){
         $(this).toggleClass('active');
-        $('.navmob').toggleClass('active');
+        $('.cs_menu').toggleClass('active');
     });
+
+
 });
 
 

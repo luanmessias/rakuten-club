@@ -2,9 +2,82 @@
 
 .cs_header{
     .cs_wrapper {
+        @include flexbox(row, wrap, space-between, center, center);
+        @include box-sizing;
         height: auto;
         min-height: 100px;
-        @include flexbox(row, wrap, space-between, center, center);
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+.cs_mobmenu {
+    @include center-cont;
+    @include box-sizing;
+    @include transition;
+    @include border-radius(5px);
+    cursor: pointer;
+    display: none;
+    border: 0px solid #FFF;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    left: 0;
+
+    @media #{$res-break} {
+        display: flex;
+    }
+
+    > span {
+        width: 100%;
+        height: 3px;
+        background-color: $color-red;
+        display: block;
+        margin: 5px 0px;
+    }
+
+    &:before,
+    &:after {
+        @include transition;
+        content: "";
+        width: 100%;
+        height: 3px;
+        display: block;
+        background-color: $color-red;
+    }
+
+    &.active {
+        background-color: $color-red;
+        position: relative;
+        > span {
+            @include opacity(0);
+            height: 2px;
+            width: 20px;
+        }
+
+        &:before,
+        &:after {
+            position: absolute;
+            background-color: #FFF;
+            height: 2px;
+            width: 20px;
+            margin-left: 3px;
+        }
+
+        &:before {
+            @include rotate(45);
+        }
+
+        &:after {
+            @include rotate(-45);
+        }
+    }
+
+    @media #{$res-break} {
+        &.active {
+            @include transition;
+            z-index: 11;
+        }
     }
 }
 
@@ -15,7 +88,6 @@
     .cs_menu__bt{
         margin-left: 10px;
     }
-
 
     @include e('link'){
         @include fonte($second-font, bold, 14px, $color-gray-dark);
@@ -46,11 +118,50 @@
         }
     }
 
+    &.active{
+        @include animate(fadeIn, 0s);
+    }
+
+    @media #{$res-break} {
+        @include flexbox(column, wrap, flex-start, flex-start, flex-start);
+        width: 100%;
+        display: none;
+        margin-top: 10px;
+        background: $color-red;
+       
+        > a{
+            padding: 15px;
+            color: #FFF;
+        }
+        .cs_menu__sep{
+            display: none;
+        }
+        .cs_menu__txt{
+            display: none;
+        }
+
+        .cs_menu__bt{
+            background: transparent;
+            font-weight: bold;
+            &:hover{
+                color: $color-gray-extra-dark;
+            }
+        }
+
+        &.active{
+            display: flex;
+        }
+
+
+    }
+
+
 }
 
 .cs_timer{
     padding: 15px 0px;
     background-color: $color-red;
+    position: relative;
     .cs_wrapper {
         @include flexbox(row, wrap, space-between, center, center);
     }
@@ -75,5 +186,39 @@
     @include e('text'){
         @include fonte($second-font, bold, 40px, #FFF);
     }
+
+    &:after{
+        @include set-icon($fa-var-caret-down, 80px, 900, $color-red);
+        position: absolute;
+        left: 355px;
+        top: 35px;
+    }
+
+    @media #{$res-break} {
+        text-align: center;
+        .cs_timer__icon,
+        .cs_timer__arrow{
+            display: none;
+        }
+
+        .cs_timer__title,
+        .cs_timer__desc,
+        .cs_timer__text{
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+
+    }
     
+}
+
+.cs_prod{
+    background-color: #B2B2B2;
+    padding: 50px 0px;
+    .cs_wrapper{
+        @include flexbox(row, wrap, space-between, center, center);
+        @include box-sizing;
+        height: auto;
+    }
 }
