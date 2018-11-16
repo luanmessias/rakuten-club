@@ -518,10 +518,32 @@
 
 
 .cs_desc{
+    margin: 10px 0px;
+
     @include e('title'){
         @include fonte($second-font, bold, 25px, #000);
         @include e('icon'){
             margin-right: 20px;
         }
     }
+
+    @include e('tabs'){
+        @include flexbox(row, wrap, space-between, flex-start, flex-start);
+        @include box-sizing;
+        padding: 0px;
+        list-style: none;
+
+        @include e('title'){
+            @include fonte($second-font, bold, 14px, #000);
+        }
+        @include e('cont'){
+            @include fonte($second-font, 400, 14px, #000);
+        }
+        @include e('sep'){
+            border-bottom: 1px solid $color-gray;
+            padding: 0px;
+        }
+
+    }
+
 }
