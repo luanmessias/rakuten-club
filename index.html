@@ -8,7 +8,6 @@
     <title>Rakuten Shopping</title>
 
     <link rel="stylesheet" type="text/css" href="dist/css/main.css">
-    <link rel="stylesheet" type="text/css" href="dist/css/slider.css">
     <script type="text/javascript" src="dist/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="dist/js/scripts.js"></script>
 </head>
@@ -33,7 +32,7 @@
                 <a class="cs_menu__link" href="#"><i class="fas fa-user"></i> LOGIN</a>
                 <a class="cs_menu__bt" href="#">CADASTRE-SE</a>
             </div>
-           
+
         </div>
     </div>
     <div class="cs_timer">
@@ -53,62 +52,75 @@
     <div class="cs_prod">
         <div class="cs_wrapper">
 
-                <div id="thumbs2">
-                        <div class="inner">
-                            <ul>
-                                <li>
-                                    <a class="thumb" href="dist/img/prod1/2.jpg">
-                                        <img src="dist/img/prod1/2.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="thumb" href="dist/img/prod1/3.jpg">
-                                        <img src="dist/img/prod1/3.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="thumb" href="dist/img/prod1/4.jpg">
-                                        <img src="dist/img/prod1/4.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="thumb" href="dist/img/prod1/5.jpg">
-                                        <img src="dist/img/prod1/5.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="thumb" href="dist/img/prod1/6.jpg">
-                                        <img src="dist/img/prod1/6.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="thumb" href="dist/img/prod1/7.jpg">
-                                        <img src="dist/img/prod1/7.jpg" alt="">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="thumb" href="dist/img/prod1/8.jpg">
-                                        <img src="dist/img/prod1/8.jpg" alt="">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+            <div class="cs_prod__img grid xl_65 lg_8 md_6 sm_12 xs_12">
+                <div class="cs_prod__thumb">
+                    <div id="arrowUp" class="cs_prod__thumb__arrow inactive"></div>
+
+                    <div class="cs_prod__thumb__overflow">
+                        <ul class="cs_prod__thumb__cont">
+                            <li class="cs_prod__thumb__item cs_prod__thumb__item--first active">
+                                <img class="cs_prod__thumb__item__img" src="dist/img/prod1/thumb/1.jpg" alt="">
+                            </li>
+                            <li class="cs_prod__thumb__item">
+                                <img class="cs_prod__thumb__item__img" src="dist/img/prod1/thumb/2.jpg" alt="">
+                            </li>
+                            <li class="cs_prod__thumb__item">
+                                <img class="cs_prod__thumb__item__img" src="dist/img/prod1/thumb/3.jpg" alt="">
+                            </li>
+                            <li class="cs_prod__thumb__item">
+                                <img class="cs_prod__thumb__item__img" src="dist/img/prod1/thumb/4.jpg" alt="">
+                            </li>
+                            <li class="cs_prod__thumb__item">
+                                <img class="cs_prod__thumb__item__img" src="dist/img/prod1/thumb/5.jpg" alt="">
+                            </li>
+                            <li class="cs_prod__thumb__item">
+                                <img class="cs_prod__thumb__item__img" src="dist/img/prod1/thumb/6.jpg" alt="">
+                            </li>
+                            <li class="cs_prod__thumb__item">
+                                <img class="cs_prod__thumb__item__img" src="dist/img/prod1/thumb/7.jpg" alt="">
+                            </li>
+                            <li class="cs_prod__thumb__item">
+                                <img class="cs_prod__thumb__item__img" src="dist/img/prod1/thumb/8.jpg" alt="">
+                            </li>
+                        </ul>
                     </div>
-            <div class="cs_prod__thumb">
 
+
+                    <div id="arrowDown" class="cs_prod__thumb__arrow"></div>
+                </div>
+                <div class="cs_prod__photo">
+                    <img class="cs_prod__photo__img" src="dist/img/prod1/1.jpg" alt="">
+                    <div class="cs_prod__nav">
+                        <div id="arrowLeft" class="cs_prod__nav__arrow"></div>
+                        <div id="arrowRight" class="cs_prod__nav__arrow"></div>
+                    </div>
+                </div>
             </div>
-            <div class="cs_prod__photo">
 
-            </div>
-            <div class="cs_prod__info">
-
+            <div class="cs_prod__info grid xl_55 lg_4 md_6 sm_12 xs_12">
+                <h1 class="cs_prod__name">iPhone X Apple Cinza Espacial</h1>
+                <span class="cs_prod__desc">Tela de 5,8", 4G, 64GB, Câmera 12MP</span>
+                <div class="cs_prod__info__sep"></div>
+                <span class="cs_prod__pricefrom"><span class="cs_prod__pricefrom__prefix">DE</span> R$2500,00</span>
+                <span class="cs_prod__priceto">R$1250,00</span>
+                <span class="cs_prod__parcel">Até 10x sem juros</span>
+                <a href="#" class="cs_prod__buy">COMPRAR</a>
+                <div class="cs_prod__info__sep"></div>
+                <div class="cs_prod__delivery">
+                    <div class="cs_prod__delivery__icon">
+                        <img src="dist/img/box.png" alt="">
+                    </div>
+                    <div class="cs_prod__delivery__desc">
+                        <span class="cs_prod__delivery__title">PRODUTO COM DESCONTO</span>
+                        <span class="cs_prod__delivery__txt">Estoque limitado, aproveite!!!</span>
+                    </div>
+                </div>
             </div>
             <div class="cs_prod__arrow">
 
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="dist/js/thumbs.js"></script>
 </body>
 
 </html>
