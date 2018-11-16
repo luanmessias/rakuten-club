@@ -206,6 +206,7 @@
 
     &:after {
         @include set-icon($fa-var-caret-down, 80px, 900, $color-red);
+
         position: absolute;
         left: 355px;
         top: 35px;
@@ -217,7 +218,6 @@
             right: auto;
             margin-left: -25px;
         }
-
     }
 
     @media #{$res-break} {
@@ -241,6 +241,7 @@
 .cs_prod {
     @include box-sizing;
     @include transition;
+
     background-color: #B2B2B2;
     padding: 50px 0px;
 
@@ -251,9 +252,9 @@
     .cs_wrapper {
         @include flexbox(row, wrap, space-between, flex-start, flex-start);
         @include box-sizing;
+
         height: auto;
     }
-    
 
     @include e("img") {
         @include flexbox(row, nowrap, flex-start, flex-start, flex-start);
@@ -262,18 +263,21 @@
 
     @include e("thumb") {
         @include flexbox(column, wrap, space-between, center, center);
+
         margin-right: 25px;
 
         @media #{$res-break} {
             display: none;
         }
 
-        @include e('overflow'){
+        @include e("overflow") {
             @include box-sizing;
+
             position: relative;
             overflow: hidden;
             height: calc(120px * 4);
         }
+
 
         @include e("cont") {
             position: relative;
@@ -301,7 +305,6 @@
                 @include opacity(1);
             }
 
-
             @include m("first") {
                 margin-top: 0px;
             }
@@ -311,8 +314,8 @@
                 width: 100%;
                 height: auto;
                 -webkit-box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
-            -moz-box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
-            box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
+                -moz-box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
+                box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
             }
         }
 
@@ -320,14 +323,15 @@
         @include e("arrow") {
             @include box-sizing;
             @include transition;
+
             cursor: pointer;
             display: block;
 
-            &.inactive{
-                @include opacity(.1);
+            &.inactive {
+                @include opacity(0.1);
+
                 cursor: default;
             }
-
         }
 
 
@@ -344,50 +348,53 @@
         }
     }
 
-    @include e('nav'){
+
+    @include e("nav") {
         @include flexbox(row, nowrap, space-between, center, center);
         @include box-sizing;
+        position: absolute;
+        top: 50%;
+        margin-top: -27px;
         width: 100%;
         display: none;
-        background-color: $color-gray-light;
-        
+
         @media #{$res-break} {
             display: flex;
         }
 
-        @include e('arrow'){
+        @include e("arrow") {
             @include transition;
+
             background-color: $color-red;
             padding: 10px 20px;
             cursor: pointer;
 
-            &.inactive{
-                @include opacity(.5);
+            &.inactive {
+                @include opacity(0.5);
+
                 cursor: default;
             }
-
         }
+
 
         #arrowLeft {
             &:before {
                 @include set-icon($fa-var-angle-left, 30px, 900, #FFF);
             }
         }
-    
+
         #arrowRight {
             &:before {
                 @include set-icon($fa-var-angle-right, 30px, 900, #FFF);
             }
         }
-
     }
-
-   
 
 
     @include e("photo") {
         @include box-sizing;
         @include transition;
+
         position: relative;
         width: 100%;
         max-width: 465px;
@@ -409,86 +416,112 @@
     @include e("info") {
         @include box-sizing;
         @include transition;
+
         margin-top: 30px;
-        @include e('sep'){
+
+        @include e("sep") {
             width: 100%;
             height: 1px;
             background-color: $color-gray;
             margin: 20px 0px;
         }
-
     }
 
 
-    @include e('name'){
+    @include e("name") {
         @include fonte($second-font, bold, 28px, $color-gray-extra-dark);
+
         margin: 5px 0px;
     }
 
-    @include e('desc'){
+
+    @include e("desc") {
         @include fonte($second-font, 400, 20px, $color-gray-extra-dark);
     }
 
-    @include e('pricefrom'){
+
+    @include e("pricefrom") {
         @include fonte($second-font, 400, 25px, $color-gray);
+
         display: block;
         width: 100%;
         text-decoration: line-through;
-        @include e('prefix'){
 
-        }
+        @include e("prefix") {}
     }
 
-    @include e('priceto'){
+
+    @include e("priceto") {
         @include fonte($second-font, bold, 60px, $color-gray-extra-dark);
+
         width: 100%;
         display: block;
     }
 
-    @include e('parcel'){
+
+    @include e("parcel") {
         @include fonte($second-font, normal, 30px, $color-gray-dark);
+
         width: 100%;
         display: block;
     }
 
-    @include e('buy'){
+
+    @include e("buy") {
         @include flexbox(row, nowrap, center, center, center);
         @include fonte($second-font, normal, 20px, #FFF);
         @include border-radius(50px);
         @include transition;
+
         width: 100%;
         max-width: 260px;
         height: 55px;
         background-color: $color-red;
         margin: 10px 0px;
+
         &:after {
             @include set-icon($fa-var-angle-right, 30px, 900, #FFF);
+
             margin-left: 10px;
         }
-        &:hover{
+
+        &:hover {
             background-color: $color-red-dark;
         }
     }
 
-    @include e('delivery'){
+
+    @include e("delivery") {
         @include flexbox(row, nowrap, flex-start, center, center);
 
-        @include e('icon'){
+        @include e("icon") {
             margin-right: 15px;
         }
 
-        @include e('title'){
+
+        @include e("title") {
             @include fonte($second-font, normal, 26px, $color-gray-dark);
+
             width: 100%;
             display: block;
         }
 
-        @include e('txt'){
+
+        @include e("txt") {
             @include fonte($second-font, normal, 24px, $color-gray-dark);
+
             width: 100%;
             display: block;
         }
-
     }
+}
 
+
+.cs_desc{
+    @include e('title'){
+        @include fonte($second-font, bold, 25px, #000);
+        @include e('icon'){
+            margin-right: 20px;
+        }
+    }
 }
