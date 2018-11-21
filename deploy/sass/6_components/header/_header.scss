@@ -514,8 +514,21 @@
             display: block;
         }
     }
-}
 
+
+    @include e("arrow"){
+        width: 100%;
+        text-align: center;
+        @include e("bt"){
+            cursor: pointer;
+            &:before{
+                @include set-icon($fa-var-chevron-circle-down, 60px, 900, #FFF);
+            }
+        }
+    }
+
+
+}
 
 .cs_desc{
     margin: 10px 0px;
@@ -547,3 +560,4 @@
     }
 
 }
+
