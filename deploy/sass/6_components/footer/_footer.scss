@@ -1,142 +1,163 @@
-.cs_footer {
-    background-color: #252525;
-    padding-top: 20px;
+#main-store {
+    .cs_footer {
+        background-color: #252525;
+        padding-top: 20px;
 
-    @include e("row") {
-        @include flexbox(row, wrap, space-between, flex-start, flex-start);
+        @include e("row") {
+            @include flexbox(row, wrap, space-between, flex-start, flex-start);
 
-        @include m('mid'){
-            padding: 10px 0px;
-            border-top: 1px solid $color-gray-dark;
-            border-bottom: 1px solid $color-gray-dark;
-        }
-
-        @media #{$res-xs} {
-            @include flexbox(column, nowrap, flex-start, flex-start, flex-start);
-        }
-
-    }
-
-
-    @include e("col") {
-        @include m("social") {
-            @include flexbox(row, wrap, flex-start, flex-start, flex-start);
-
-            .cs_footer__title {
-                width: 100%;
+            @include m("mid") {
+                @include flexbox(row, wrap, space-between, center, center);
+                padding: 10px 0px;
+                border-top: 1px solid $color-gray-dark;
+                border-bottom: 1px solid $color-gray-dark;
             }
+
 
             @media #{$res-xs} {
-                margin-bottom: 20px;
+                @include flexbox(column, nowrap, flex-start, flex-start, flex-start);
             }
         }
 
-        @include m("payment") {
-            @include flexbox(row, nowrap, flex-start, center, flex-start);
-            .cs_footer__title {
-                margin-right: 10px;
-            }
-            img{
-                margin-right: 5px;
-            }
 
-            @media #{$res-xs} {
-                @include flexbox(row, wrap, center, flex-start, flex-start);
-                width: 100%;
+        @include e("col") {
+            @include m("social") {
+                @include flexbox(row, wrap, flex-start, flex-start, flex-start);
+
                 .cs_footer__title {
                     width: 100%;
-                    text-align: center;
+                }
+
+                @media #{$res-xs} {
+                    margin-bottom: 20px;
                 }
             }
-            
+
+
+            @include m("payment") {
+                @include flexbox(row, nowrap, flex-start, center, center);
+
+                .cs_footer__title {
+                    margin: 0px;
+                    margin-right: 10px;
+                }
+
+                img {
+                    margin-right: 5px;
+                }
+
+                @media #{$res-xs} {
+                    @include flexbox(row, wrap, center, flex-start, flex-start);
+                    margin-bottom: 15px;
+                    width: 100%;
+
+                    .cs_footer__title {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
         }
-    }
 
 
-    @include e("title") {
-        @include fonte($second-font, bold, 14px, #FFF);
+        @include e("title") {
+            @include fonte($second-font, bold, 14px, #FFF);
 
-        margin-bottom: 10px;
-        text-transform: uppercase;
-    }
-
-
-    @include e("item") {
-        @include fonte($second-font, 400, 10px, $color-gray);
-        @include transition;
-
-        display: block;
-        margin-bottom: 5px;
-
-        &:hover {
-            color: #FFF;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
-    }
 
 
-    @include e("social") {
-        @include flexbox(row, wrap, center, center, center);
-        @include border-radius(50px);
-        @include transition;
-
-        background-color: $color-gray;
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
-
-        .fab {
+        @include e("item") {
+            @include fonte($second-font, 400, 10px, $color-gray);
             @include transition;
-            color: #252525;
-        }
 
-        &:hover {
-            .fab {
+            display: block;
+            margin-bottom: 5px;
+
+            &:hover {
                 color: #FFF;
             }
         }
 
-        @include m("fb") {
+
+        @include e("social") {
+            @include flexbox(row, wrap, center, center, center);
+            @include border-radius(50px);
+            @include transition;
+
+            background-color: $color-gray;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+
+            .fab {
+                @include transition;
+                font-size: 20px;
+                color: #252525;
+            }
+
             &:hover {
-                background-color: $facebook_color;
+                .fab {
+                    color: #FFF;
+                }
+            }
+
+            @include m("fb") {
+                &:hover {
+                    background-color: $facebook_color;
+                }
+            }
+
+
+            @include m("tw") {
+                &:hover {
+                    background-color: $twitter_color;
+                }
+            }
+
+
+            @include m("pr") {
+                &:hover {
+                    background-color: $pinterest_color;
+                }
             }
         }
-        @include m("tw") {
-            &:hover {
-                background-color: $twitter_color;
-            }
-        }
-        @include m("pr") {
-            &:hover {
-                background-color: $pinterest_color;
-            }
-        }
-    }
 
 
-    @include e('license'){
-        @include fonte($second-font, 400, 11px, $color-gray);
-        padding: 15px 0px;
-    }
-
-    @include e('info'){
-        @include fonte($second-font, 400, 14px, #FFF);
-    }
-
-    @include e('sep'){
-        width: 1px;
-        height: 60px;
-        background-color: $color-gray-dark;
-    }
-
-    @include e('copy'){
-        @include flexbox(row, wrap, center, center, center);
-        width: 100%;
-        background-color: #FFF;
-        padding: 20px 0px;
-        margin-top: 20px;
-        @include e('txt'){
+        @include e("license") {
             @include fonte($second-font, 400, 11px, $color-gray);
+
+            padding: 15px 0px;
+        }
+
+
+        @include e("info") {
+            @include fonte($second-font, 400, 14px, #FFF);
+        }
+
+
+        @include e("sep") {
+            width: 1px;
+            height: 60px;
+            background-color: $color-gray-dark;
+            @media #{$res-xs} {
+                display: none;
+            }
+        }
+
+
+        @include e("copy") {
+            @include flexbox(row, wrap, center, center, center);
+
+            width: 100%;
+            background-color: #FFF;
+            padding: 20px 0px;
+            margin-top: 20px;
+
+            @include e("txt") {
+                @include fonte($second-font, 400, 11px, $color-gray);
+            }
         }
     }
-
 }

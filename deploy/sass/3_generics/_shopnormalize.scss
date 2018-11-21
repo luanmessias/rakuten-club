@@ -1,0 +1,19 @@
+body, html{
+    padding: 0px;
+    margin: 0px;
+}
+
+#body{
+  line-height: normal;
+  font-size: initial;
+  min-width: auto;
+}
+
+#main-store{
+    width: 100%;
+}
+
+#header,
+#footer{
+    display: none;
+}

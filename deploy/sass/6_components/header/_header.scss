@@ -1,563 +1,569 @@
-.cs_header {
-    .cs_wrapper {
-        @include flexbox(row, wrap, space-between, center, center);
+#main-store {
+    .cs_header {
+        .cs_wrapper {
+            @include flexbox(row, wrap, space-between, center, center);
+            @include box-sizing;
+
+            height: auto;
+            min-height: 100px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+
+    .cs_mobmenu {
+        @include center-cont;
         @include box-sizing;
-
-        height: auto;
-        min-height: 100px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-}
-
-.cs_mobmenu {
-    @include center-cont;
-    @include box-sizing;
-    @include transition;
-    @include border-radius(5px);
-
-    cursor: pointer;
-    display: none;
-    border: 0px solid #FFF;
-    padding: 5px;
-    width: 35px;
-    height: 35px;
-    left: 0;
-
-    @media #{$res-break} {
-        display: flex;
-    }
-
-    > span {
-        width: 100%;
-        height: 3px;
-        background-color: $color-red;
-        display: block;
-        margin: 5px 0px;
-    }
-
-    &:before,
-    &:after {
         @include transition;
+        @include border-radius(5px);
 
-        content: "";
-        width: 100%;
-        height: 3px;
-        display: block;
-        background-color: $color-red;
-    }
+        cursor: pointer;
+        display: none;
+        border: 0px solid #FFF;
+        padding: 5px;
+        width: 35px;
+        height: 35px;
+        left: 0;
 
-    &.active {
-        background-color: $color-red;
-        position: relative;
+        @media #{$res-break} {
+            display: flex;
+        }
 
         > span {
-            @include opacity(0);
-
-            height: 2px;
-            width: 20px;
+            width: 100%;
+            height: 3px;
+            background-color: $color-red;
+            display: block;
+            margin: 5px 0px;
         }
 
         &:before,
         &:after {
-            position: absolute;
-            background-color: #FFF;
-            height: 2px;
-            width: 20px;
-            margin-left: 3px;
-        }
-
-        &:before {
-            @include rotate(45);
-        }
-
-        &:after {
-            @include rotate(-45);
-        }
-    }
-
-    @media #{$res-break} {
-        &.active {
             @include transition;
 
-            z-index: 11;
+            content: "";
+            width: 100%;
+            height: 3px;
+            display: block;
+            background-color: $color-red;
         }
-    }
-}
 
-.cs_menu {
-    .cs_menu__link,
-    .cs_menu__sep,
-    .cs_menu__txt,
-    .cs_menu__bt {
-        margin-left: 10px;
-    }
+        &.active {
+            background-color: $color-red;
+            position: relative;
 
-    @include e("link") {
-        @include fonte($second-font, bold, 14px, $color-gray-dark);
-        @include transition;
+            > span {
+                @include opacity(0);
 
-        &:hover {
-            color: $color-gray-extra-dark;
+                height: 2px;
+                width: 20px;
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                background-color: #FFF;
+                height: 2px;
+                width: 20px;
+                margin-left: 3px;
+            }
+
+            &:before {
+                @include rotate(45);
+            }
+
+            &:after {
+                @include rotate(-45);
+            }
         }
-    }
 
+        @media #{$res-break} {
+            &.active {
+                @include transition;
 
-    @include e("sep") {
-        width: 1px;
-        height: 30px;
-        background-color: $color-gray-dark;
-    }
-
-
-    @include e("txt") {
-        @include fonte($second-font, 400, 14px, $color-gray-dark);
-    }
-
-
-    @include e("bt") {
-        @include fonte($second-font, 400, 14px, #FFF);
-        @include border-radius(35px);
-        @include transition;
-
-        padding: 5px 25px;
-        background-color: $color-gray-dark;
-
-        &:hover {
-            background-color: $color-gray-extra-dark;
+                z-index: 11;
+            }
         }
     }
 
-
-    &.active {
-        @include animate(fadeIn, 0s);
-    }
-
-    @media #{$res-break} {
-        @include flexbox(column, wrap, flex-start, flex-start, flex-start);
-
-        width: 100%;
-        display: none;
-        margin-top: 10px;
-        background: $color-red;
-
-        > a {
-            padding: 15px;
-            color: #FFF;
-        }
-
-        .cs_menu__sep {
-            display: none;
-        }
-
-        .cs_menu__txt {
-            display: none;
-        }
-
+    .cs_menu {
+        .cs_menu__link,
+        .cs_menu__sep,
+        .cs_menu__txt,
         .cs_menu__bt {
-            background: transparent;
-            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        @include e("link") {
+            @include fonte($second-font, bold, 14px, $color-gray-dark);
+            @include transition;
 
             &:hover {
                 color: $color-gray-extra-dark;
             }
         }
 
-        &.active {
-            display: flex;
-        }
-    }
-}
-
-.cs_timer {
-    padding: 15px 0px;
-    background-color: $color-red;
-    position: relative;
-
-    .cs_wrapper {
-        @include flexbox(row, wrap, space-between, center, center);
-    }
-
-    @include e("timer") {
-        @include flexbox(row, wrap, space-between, center, center);
-    }
-
-
-    @include e("title") {
-        @include fonte($second-font, bold, 40px, #FFF);
-    }
-
-
-    @include e("arrow") {
-        font-size: 40px;
-        color: #FFF;
-    }
-
-
-    @include e("desc") {
-        @include fonte($second-font, normal, 40px, #FFF);
-    }
-
-
-    @include e("text") {
-        @include fonte($second-font, bold, 40px, #FFF);
-    }
-
-
-    &:after {
-        @include set-icon($fa-var-caret-down, 80px, 900, $color-red);
-
-        position: absolute;
-        left: 355px;
-        top: 35px;
-
-        @media #{$res-break} {
-            bottom: -52px;
-            top: auto;
-            left: auto;
-            right: auto;
-            margin-left: -25px;
-        }
-    }
-
-    @media #{$res-break} {
-        text-align: center;
-
-        .cs_timer__icon,
-        .cs_timer__arrow {
-            display: none;
-        }
-
-        .cs_timer__title,
-        .cs_timer__desc,
-        .cs_timer__text {
-            width: 100%;
-            text-align: center;
-            display: block;
-        }
-    }
-}
-
-.cs_prod {
-    @include box-sizing;
-    @include transition;
-
-    background-color: #B2B2B2;
-    padding: 50px 0px;
-
-    @media #{$res-break} {
-        padding: 0px;
-    }
-
-    .cs_wrapper {
-        @include flexbox(row, wrap, space-between, flex-start, flex-start);
-        @include box-sizing;
-
-        height: auto;
-    }
-
-    @include e("img") {
-        @include flexbox(row, nowrap, flex-start, flex-start, flex-start);
-    }
-
-
-    @include e("thumb") {
-        @include flexbox(column, wrap, space-between, center, center);
-
-        margin-right: 25px;
-
-        @media #{$res-break} {
-            display: none;
-        }
-
-        @include e("overflow") {
-            @include box-sizing;
-
-            position: relative;
-            overflow: hidden;
-            height: calc(120px * 4);
-        }
-
-
-        @include e("cont") {
-            position: relative;
-            top: 0px;
-            list-style: none;
-            padding: 0px;
-            margin: 0px;
-        }
-
-
-        @include e("item") {
-            @include box-sizing;
-            @include border-radius(5px);
-            @include opacity(0.5);
-            @include transition;
-
-            width: 110px;
-            height: 110px;
-            overflow: hidden;
-            margin: 10px 0px;
-            cursor: pointer;
-
-            &:hover,
-            &.active {
-                @include opacity(1);
-            }
-
-            @include m("first") {
-                margin-top: 0px;
-            }
-
-
-            @include e("img") {
-                width: 100%;
-                height: auto;
-                -webkit-box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
-                -moz-box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
-                box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
-            }
-        }
-
-
-        @include e("arrow") {
-            @include box-sizing;
-            @include transition;
-
-            cursor: pointer;
-            display: block;
-
-            &.inactive {
-                @include opacity(0.1);
-
-                cursor: default;
-            }
-        }
-
-
-        #arrowUp {
-            &:before {
-                @include set-icon($fa-var-angle-up, 25px, 900, #000);
-            }
-        }
-
-        #arrowDown {
-            &:before {
-                @include set-icon($fa-var-angle-down, 25px, 900, #000);
-            }
-        }
-    }
-
-
-    @include e("nav") {
-        @include flexbox(row, nowrap, space-between, center, center);
-        @include box-sizing;
-        position: absolute;
-        top: 50%;
-        margin-top: -27px;
-        width: 100%;
-        display: none;
-
-        @media #{$res-break} {
-            display: flex;
-        }
-
-        @include e("arrow") {
-            @include transition;
-
-            background-color: $color-red;
-            padding: 10px 20px;
-            cursor: pointer;
-
-            &.inactive {
-                @include opacity(0.5);
-
-                cursor: default;
-            }
-        }
-
-
-        #arrowLeft {
-            &:before {
-                @include set-icon($fa-var-angle-left, 30px, 900, #FFF);
-            }
-        }
-
-        #arrowRight {
-            &:before {
-                @include set-icon($fa-var-angle-right, 30px, 900, #FFF);
-            }
-        }
-    }
-
-
-    @include e("photo") {
-        @include box-sizing;
-        @include transition;
-
-        position: relative;
-        width: 100%;
-        max-width: 465px;
-        margin-top: 30px;
-
-        @media #{$res-break} {
-            max-width: 100%;
-        }
-
-        @include e("img") {
-            @include box-sizing;
-
-            border: 5px solid $color-gray-light;
-            width: 100%;
-        }
-    }
-
-
-    @include e("info") {
-        @include box-sizing;
-        @include transition;
-
-        margin-top: 30px;
 
         @include e("sep") {
-            width: 100%;
-            height: 1px;
-            background-color: $color-gray;
-            margin: 20px 0px;
-        }
-    }
-
-
-    @include e("name") {
-        @include fonte($second-font, bold, 28px, $color-gray-extra-dark);
-
-        margin: 5px 0px;
-    }
-
-
-    @include e("desc") {
-        @include fonte($second-font, 400, 20px, $color-gray-extra-dark);
-    }
-
-
-    @include e("pricefrom") {
-        @include fonte($second-font, 400, 25px, $color-gray);
-
-        display: block;
-        width: 100%;
-        text-decoration: line-through;
-
-        @include e("prefix") {}
-    }
-
-
-    @include e("priceto") {
-        @include fonte($second-font, bold, 60px, $color-gray-extra-dark);
-
-        width: 100%;
-        display: block;
-    }
-
-
-    @include e("parcel") {
-        @include fonte($second-font, normal, 30px, $color-gray-dark);
-
-        width: 100%;
-        display: block;
-    }
-
-
-    @include e("buy") {
-        @include flexbox(row, nowrap, center, center, center);
-        @include fonte($second-font, normal, 20px, #FFF);
-        @include border-radius(50px);
-        @include transition;
-
-        width: 100%;
-        max-width: 260px;
-        height: 55px;
-        background-color: $color-red;
-        margin: 10px 0px;
-
-        &:after {
-            @include set-icon($fa-var-angle-right, 30px, 900, #FFF);
-
-            margin-left: 10px;
-        }
-
-        &:hover {
-            background-color: $color-red-dark;
-        }
-    }
-
-
-    @include e("delivery") {
-        @include flexbox(row, nowrap, flex-start, center, center);
-
-        @include e("icon") {
-            margin-right: 15px;
-        }
-
-
-        @include e("title") {
-            @include fonte($second-font, normal, 26px, $color-gray-dark);
-
-            width: 100%;
-            display: block;
+            width: 1px;
+            height: 30px;
+            background-color: $color-gray-dark;
         }
 
 
         @include e("txt") {
-            @include fonte($second-font, normal, 24px, $color-gray-dark);
+            @include fonte($second-font, 400, 14px, $color-gray-dark);
+        }
+
+
+        @include e("bt") {
+            @include fonte($second-font, 400, 14px, #FFF);
+            @include border-radius(35px);
+            @include transition;
+
+            padding: 5px 25px;
+            background-color: $color-gray-dark;
+
+            &:hover {
+                background-color: $color-gray-extra-dark;
+            }
+        }
+
+
+        &.active {
+            @include animate(fadeIn, 0s);
+        }
+
+        @media #{$res-break} {
+            @include flexbox(column, wrap, flex-start, flex-start, flex-start);
 
             width: 100%;
-            display: block;
-        }
-    }
+            display: none;
+            margin-top: 10px;
+            background: $color-red;
 
+            > a {
+                padding: 15px;
+                color: #FFF;
+            }
 
-    @include e("arrow"){
-        width: 100%;
-        text-align: center;
-        @include e("bt"){
-            cursor: pointer;
-            &:before{
-                @include set-icon($fa-var-chevron-circle-down, 60px, 900, #FFF);
+            .cs_menu__sep {
+                display: none;
+            }
+
+            .cs_menu__txt {
+                display: none;
+            }
+
+            .cs_menu__bt {
+                background: transparent;
+                font-weight: bold;
+
+                &:hover {
+                    color: $color-gray-extra-dark;
+                }
+            }
+
+            &.active {
+                display: flex;
             }
         }
     }
 
+    .cs_timer {
+        padding: 15px 0px;
+        background-color: $color-red;
+        position: relative;
 
-}
+        .cs_wrapper {
+            @include flexbox(row, wrap, space-between, center, center);
+        }
 
-.cs_desc{
-    margin: 10px 0px;
+        @include e("timer") {
+            @include flexbox(row, wrap, space-between, center, center);
+        }
 
-    @include e('title'){
-        @include fonte($second-font, bold, 25px, #000);
-        @include e('icon'){
-            margin-right: 20px;
+
+        @include e("title") {
+            @include fonte($second-font, bold, 40px, #FFF);
+        }
+
+
+        @include e("arrow") {
+            font-size: 40px;
+            color: #FFF;
+        }
+
+
+        @include e("desc") {
+            @include fonte($second-font, normal, 40px, #FFF);
+        }
+
+
+        @include e("text") {
+            @include fonte($second-font, bold, 40px, #FFF);
+        }
+
+
+        &:after {
+            @include set-icon($fa-var-caret-down, 80px, 900, $color-red);
+
+            position: absolute;
+            left: 355px;
+            top: 35px;
+
+            @media #{$res-break} {
+                bottom: -45px;
+                top: auto;
+                left: auto;
+                right: auto;
+                margin-left: -25px;
+            }
+        }
+
+        @media #{$res-break} {
+            text-align: center;
+
+            .cs_timer__icon,
+            .cs_timer__arrow {
+                display: none;
+            }
+
+            .cs_timer__title,
+            .cs_timer__desc,
+            .cs_timer__text {
+                width: 100%;
+                text-align: center;
+                display: block;
+            }
         }
     }
 
-    @include e('tabs'){
-        @include flexbox(row, wrap, space-between, flex-start, flex-start);
+    .cs_prod {
         @include box-sizing;
-        padding: 0px;
-        list-style: none;
+        @include transition;
 
-        @include e('title'){
-            @include fonte($second-font, bold, 14px, #000);
-        }
-        @include e('cont'){
-            @include fonte($second-font, 400, 14px, #000);
-        }
-        @include e('sep'){
-            border-bottom: 1px solid $color-gray;
+        background-color: #B2B2B2;
+        padding: 50px 0px;
+
+        @media #{$res-break} {
             padding: 0px;
         }
 
+        .cs_wrapper {
+            @include flexbox(row, wrap, space-between, flex-start, flex-start);
+            @include box-sizing;
+
+            height: auto;
+        }
+
+        @include e("img") {
+            @include flexbox(row, nowrap, flex-start, flex-start, flex-start);
+        }
+
+
+        @include e("thumb") {
+            @include flexbox(column, wrap, space-between, center, center);
+
+            margin-right: 25px;
+
+            @media #{$res-break} {
+                display: none;
+            }
+
+            @include e("overflow") {
+                @include box-sizing;
+
+                position: relative;
+                overflow: hidden;
+                height: calc(120px * 4);
+            }
+
+
+            @include e("cont") {
+                position: relative;
+                top: 0px;
+                list-style: none;
+                padding: 0px;
+                margin: 0px;
+            }
+
+
+            @include e("item") {
+                @include box-sizing;
+                @include border-radius(5px);
+                @include opacity(0.5);
+                @include transition;
+
+                width: 110px;
+                height: 110px;
+                overflow: hidden;
+                margin: 10px 0px;
+                cursor: pointer;
+
+                &:hover,
+                &.active {
+                    @include opacity(1);
+                }
+
+                @include m("first") {
+                    margin-top: 0px;
+                }
+
+
+                @include e("img") {
+                    width: 100%;
+                    height: auto;
+                    -webkit-box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
+                    -moz-box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
+                    box-shadow: 0px 0px 14px 0px rgba(153, 153, 153, 1);
+                }
+            }
+
+
+            @include e("arrow") {
+                @include box-sizing;
+                @include transition;
+
+                cursor: pointer;
+                display: block;
+
+                &.inactive {
+                    @include opacity(0.1);
+
+                    cursor: default;
+                }
+            }
+
+
+            #arrowUp {
+                &:before {
+                    @include set-icon($fa-var-angle-up, 25px, 900, #000);
+                }
+            }
+
+            #arrowDown {
+                &:before {
+                    @include set-icon($fa-var-angle-down, 25px, 900, #000);
+                }
+            }
+        }
+
+
+        @include e("nav") {
+            @include flexbox(row, nowrap, space-between, center, center);
+            @include box-sizing;
+
+            position: absolute;
+            top: 50%;
+            margin-top: -27px;
+            width: 100%;
+            display: none;
+
+            @media #{$res-break} {
+                display: flex;
+            }
+
+            @include e("arrow") {
+                @include transition;
+
+                background-color: $color-red;
+                padding: 10px 20px;
+                cursor: pointer;
+
+                &.inactive {
+                    @include opacity(0.5);
+
+                    cursor: default;
+                }
+            }
+
+
+            #arrowLeft {
+                &:before {
+                    @include set-icon($fa-var-angle-left, 30px, 900, #FFF);
+                }
+            }
+
+            #arrowRight {
+                &:before {
+                    @include set-icon($fa-var-angle-right, 30px, 900, #FFF);
+                }
+            }
+        }
+
+
+        @include e("photo") {
+            @include box-sizing;
+            @include transition;
+
+            position: relative;
+            width: 100%;
+            max-width: 465px;
+            margin-top: 30px;
+
+            @media #{$res-break} {
+                max-width: 100%;
+            }
+
+            @include e("img") {
+                @include box-sizing;
+
+                border: 5px solid $color-gray-light;
+                width: 100%;
+            }
+        }
+
+
+        @include e("info") {
+            @include box-sizing;
+            @include transition;
+
+            margin-top: 30px;
+
+            @include e("sep") {
+                width: 100%;
+                height: 1px;
+                background-color: $color-gray;
+                margin: 20px 0px;
+            }
+        }
+
+
+        @include e("name") {
+            @include fonte($second-font, bold, 28px, $color-gray-extra-dark);
+
+            margin: 5px 0px;
+        }
+
+
+        @include e("desc") {
+            @include fonte($second-font, 400, 20px, $color-gray-extra-dark);
+        }
+
+
+        @include e("pricefrom") {
+            @include fonte($second-font, 400, 25px, $color-gray);
+
+            display: block;
+            width: 100%;
+            text-decoration: line-through;
+
+            @include e("prefix") {}
+        }
+
+
+        @include e("priceto") {
+            @include fonte($second-font, bold, 60px, $color-gray-extra-dark);
+
+            width: 100%;
+            display: block;
+        }
+
+
+        @include e("parcel") {
+            @include fonte($second-font, normal, 30px, $color-gray-dark);
+
+            width: 100%;
+            display: block;
+        }
+
+
+        @include e("buy") {
+            @include flexbox(row, nowrap, center, center, center);
+            @include fonte($second-font, normal, 20px, #FFF);
+            @include border-radius(50px);
+            @include transition;
+
+            width: 100%;
+            max-width: 260px;
+            height: 55px;
+            background-color: $color-red;
+            margin: 10px 0px;
+
+            &:after {
+                @include set-icon($fa-var-angle-right, 30px, 900, #FFF);
+
+                margin-left: 10px;
+            }
+
+            &:hover {
+                background-color: $color-red-dark;
+            }
+        }
+
+
+        @include e("delivery") {
+            @include flexbox(row, nowrap, flex-start, center, center);
+
+            @include e("icon") {
+                margin-right: 15px;
+            }
+
+
+            @include e("title") {
+                @include fonte($second-font, normal, 26px, $color-gray-dark);
+
+                width: 100%;
+                display: block;
+            }
+
+
+            @include e("txt") {
+                @include fonte($second-font, normal, 24px, $color-gray-dark);
+
+                width: 100%;
+                display: block;
+            }
+        }
+
+
+        @include e("arrow") {
+            width: 100%;
+            text-align: center;
+
+            @include e("bt") {
+                cursor: pointer;
+
+                &:before {
+                    @include set-icon($fa-var-chevron-circle-down, 60px, 900, #FFF);
+                }
+            }
+        }
     }
 
-}
+    .cs_desc {
+        margin: 10px 0px;
 
+        @include e("title") {
+            @include fonte($second-font, bold, 25px, #000);
+            @include e("icon") {
+                margin-right: 20px;
+            }
+        }
+
+
+        @include e("tabs") {
+            @include flexbox(row, wrap, space-between, flex-start, flex-start);
+            @include box-sizing;
+
+            padding: 0px;
+            list-style: none;
+
+            @include e("title") {
+                @include fonte($second-font, bold, 14px, #000);
+            }
+
+
+            @include e("cont") {
+                @include fonte($second-font, 400, 14px, #000);
+            }
+
+
+            @include e("sep") {
+                border-bottom: 1px solid $color-gray;
+                padding: 0px;
+            }
+        }
+    }
+}
