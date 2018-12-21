@@ -418,7 +418,7 @@
         @include e("info") {
             @include box-sizing;
             @include transition;
-
+            max-width: 510px;
             margin-top: 30px;
 
             @include e("sep") {
@@ -432,20 +432,21 @@
 
         @include e("name") {
             @include fonte($second-font, bold, 28px, $color-gray-extra-dark);
-
+            display: block;
             margin: 5px 0px;
         }
 
 
         @include e("desc") {
             @include fonte($second-font, 400, 20px, $color-gray-extra-dark);
+            display: none;
         }
 
 
         @include e("pricefrom") {
             @include fonte($second-font, 400, 25px, $color-gray);
 
-            display: block;
+            display: none;
             width: 100%;
             text-decoration: line-through;
 
@@ -566,4 +567,9 @@
             }
         }
     }
+}
+
+
+.rk-area-product.container-product.product-grid-3{
+    display: none;
 }

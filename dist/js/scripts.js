@@ -113,6 +113,37 @@ $(document).ready(function () {
         $('.cs_prod__photo__img').attr('src', url);
     });
 
+    $('.cs_prod__nav__arrow.active').click(function () {
+        eventPreventDefault();
+    });
+
+    //Clone elements
+    $(".cs_prod__name").append($('.fn.name').text());
+    $(".cs_prod__priceto").append($('.hproductseo .price.sale strong').text());
+    $(".cs_prod__parcel").append($('.hproductseo .parcel').html());
+
+    //Mount images
+    var imgUrl = $('.photo.rk-photo').attr('src');
+    var imgUrl = imgUrl.replace("detail", "extended");
+
+    var imgFront = imgUrl;
+    var imgBack = imgUrl.replace("front", "back");
+    var imgUp = imgUrl.replace("front", "up");
+    var imgDown = imgUrl.replace("front", "down");
+    var imgLeft = imgUrl.replace("front", "left");
+    var imgRight = imgUrl.replace("front", "right");
+    
+
+    $('.cs_prod__photo__img').attr('src', imgUrl);
+    $('.img_front').attr('src', imgFront);
+    $('.img_back').attr('src', imgBack);
+    $('.img_up').attr('src', imgUp);
+    $('.img_down').attr('src', imgDown);
+    $('.img_left').attr('src', imgLeft);
+    $('.img_right').attr('src', imgRight);
+
+    
+
 
     $('#arrowLeft').click(function () {
 
@@ -132,6 +163,7 @@ $(document).ready(function () {
 
     $('#arrowRight').click(function () {
 
+
         if (thumbsArrows <= thumbsTotal) {
             if (thumbsArrows < thumbsTotal) {
                 thumbsArrows++
@@ -144,14 +176,10 @@ $(document).ready(function () {
         }
     });
 
-    $('.cs_prod__nav__arrow.active').click(function () {
-        eventPreventDefault();
-    });
+
+    
 
 });
-
-
-
 
 
 
@@ -163,5 +191,4 @@ $(window).load(function () {
         $('.modalover').removeClass('modalover--hidden');
         $('.modalover').addClass('modalover--show');
     }
-
 })
